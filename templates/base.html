@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Boggle{% endblock %}</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <h3>Time left: <span id="timer-msg"></span></h3>
+    <h3>Score: <span id="scoreboard"></span></h3>
+    <h4 id="scoreboard-msg"></h4>
+    <table id="boggle-board">
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for col in row %}
+                <td><span class="letter">{{col}}</span></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form>
+        <input type="text" class="text" name="guess" id="guessText" placeholder="guess a word"><br><br>
+        <button id="submitBtn">Submit</button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
